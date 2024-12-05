@@ -35,8 +35,16 @@ int sum_ascii(const string& userInput) {
 
 void part_Two() {
     ifstream file("lab-37-data.txt");
+    string txtLine;
+    int total = 0;
     if (!file.is_open()) {
         cout << "Could not open file. Please try again." << endl;
         return;
     }
+
+    while (getline(file, txtLine)) {
+        total = sum_ascii(txtLine);
+    }
+    file.close();
+    cout << "Total of lab-37-data.txt ASCII values: " << total << endl;
 }
