@@ -13,6 +13,10 @@ using namespace std;
 int sum_ascii(string&);
 
 int main() {
+    string userString = "";
+    cout << "Enter a string (no spaces): ";
+    cin >> userString;
+    cout << "\nAscii sum of " << userString << " is: " << sum_ascii(userString) << endl; 
     return 0;
 }
 
@@ -20,5 +24,7 @@ int main() {
 int sum_ascii(string& userInput) {
     int sum;
     for (char x : userInput) {
+        sum += static_cast<int>(x);
     }
+    return sum;
 }
