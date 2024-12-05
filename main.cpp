@@ -7,10 +7,11 @@ Naveen Islam
 */
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 // function prototypes
-int sum_ascii(string&);
+int sum_ascii(const string&);
 void part_Two();
 
 int main() {
@@ -23,7 +24,7 @@ int main() {
 }
 
 // sum_ascii function. receives a single string and returns the sum of that string's character's ASCII values
-int sum_ascii(string& userInput) {
+int sum_ascii(const string& userInput) {
     int sum;
     // reads every character from the user's string and adds the ascii value to the sum
     for (char x : userInput) {
@@ -33,5 +34,9 @@ int sum_ascii(string& userInput) {
 }
 
 void part_Two() {
-    
+    ifstream file("lab-37-data.txt");
+    if (!file.is_open()) {
+        cout << "Could not open file. Please try again." << endl;
+        return;
+    }
 }
