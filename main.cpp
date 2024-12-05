@@ -11,6 +11,7 @@ using namespace std;
 
 // function prototypes
 int sum_ascii(string&);
+void part_Two();
 
 int main() {
     // user input string
@@ -29,4 +30,8 @@ int sum_ascii(string& userInput) {
         sum += static_cast<int>(x);
     }
     return sum;
+}
+
+void part_Two() {
+    
 }
