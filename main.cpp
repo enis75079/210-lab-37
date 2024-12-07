@@ -15,7 +15,7 @@ using namespace std;
 // function prototypes
 int gen_hash_index(const string&);
 void part_Two();
-void part_Three();
+void part_Three(map<int, list<string>>&);
 
 // for lab38
 void first_100(const map<int, list<string>>&);
@@ -50,8 +50,8 @@ int main() {
         cout << "[6] Exit" << endl;
         cout << "Choice: ";
         cin >> userChoice;
-            first_100(hash_table);
         if (userChoice == 1) {
+            first_100(hash_table);
         }
     }
 
@@ -88,9 +88,8 @@ void part_Two() {
 }
 
 // part_Three function. creates a hash table data structure. Displays the first 100 map entries from the text file
-void part_Three(map<int, list<string>> userMap) {
+void part_Three(map<int, list<string>>& userMap) {
     // creates hash table, key is the integer and list string is the value that map to that specific hash index
-    map<int, list<string>> userMap;
     ifstream file("lab-37-data.txt");
     string txtLine;
     int dex = 0;
@@ -109,7 +108,7 @@ void part_Three(map<int, list<string>> userMap) {
     file.close();
 
     // display the hash table
-    for (auto it = userMap.begin(); it != userMap.end(); ++it) {
+    /*for (auto it = userMap.begin(); it != userMap.end(); ++it) {
         cout << "Index: " << it->first << endl;
         cout << "Entries: ";
         // displays all the strings that are associated with the current index
@@ -122,11 +121,25 @@ void part_Three(map<int, list<string>> userMap) {
         if (count >= 100) {
             break;
         }
-    }
+    }*/
 }
 
 void first_100(const map<int, list<string>>& userMap) {
-
+    int count = 0;
+    for (auto it = userMap.begin(); it != userMap.end(); ++it) {
+            cout << "Index: " << it->first << endl;
+            cout << "Entries: ";
+            // displays all the strings that are associated with the current index
+            for (const auto& entries : it->second) {
+                cout << entries << " ";
+            }
+            cout << endl;
+            count++;
+            // max 100 entries
+            if (count >= 100) {
+                break;
+            }
+        }
 }
 void keySearch();
 void keyAdd();
