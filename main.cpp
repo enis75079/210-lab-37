@@ -29,7 +29,7 @@ int main() {
 
 // sum_ascii function. receives a single string and returns the sum of that string's character's ASCII values
 int sum_ascii(const string& userInput) {
-    int sum;
+    int sum = 0;
     // reads every character from the user's string and adds the ascii value to the sum
     for (char x : userInput) {
         sum += static_cast<int>(x);
