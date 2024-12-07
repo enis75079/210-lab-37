@@ -39,7 +39,7 @@ int gen_hash_index(const string& userInput) {
     for (char x : userInput) {
         sum += static_cast<int>(x);
     }
-    return sum;
+    return sum % 100;
 
 }
 
@@ -79,12 +79,13 @@ void part_Three() {
     }
     file.close();
 
-    for (const auto& [index, entries] : hash_table) {
-        cout << "Index: " << index << endl;
+    for (auto it = hash_table.begin(); it != hash_table.end() && count < 100; ++it) {
+        cout << "Index: " << it->first << endl;
         cout << "Entries: ";
-        for (const auto& enter : entries) {
-            cout << enter << " ";
+        for (const auto& entries : it->second) {
+            cout << entries << " ";
         }
         cout << endl;
+        count++;
     }
 }
