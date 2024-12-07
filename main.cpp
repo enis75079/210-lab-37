@@ -62,7 +62,9 @@ void part_Two() {
     cout << "Total of lab-37-data.txt ASCII values: " << total << endl;
 }
 
+// part_Three function. creates a hash table data structure. Displays the first 100 map entries from the text file
 void part_Three() {
+    // creates hash table, key is the integer and list string is the value that map to that specific hash index
     map<int, list<string>> hash_table;
     ifstream file("lab-37-data.txt");
     string txtLine;
@@ -73,19 +75,27 @@ void part_Three() {
         return;
     }
 
+    // reads each line from the text file
     while (getline(file, txtLine)) {
+        // assings the hash index for the current line from the text file and inserts the respective string into the hash table
         dex = gen_hash_index(txtLine);
         hash_table[dex].push_back(txtLine);
     }
     file.close();
 
-    for (auto it = hash_table.begin(); it != hash_table.end() && count < 100; ++it) {
+    // display the hash table
+    for (auto it = hash_table.begin(); it != hash_table.end(); ++it) {
         cout << "Index: " << it->first << endl;
         cout << "Entries: ";
+        // displays all the strings that are associated with the current index
         for (const auto& entries : it->second) {
             cout << entries << " ";
         }
         cout << endl;
         count++;
+        // max 100 entries
+        if (count >= 100) {
+            break;
+        }
     }
 }
