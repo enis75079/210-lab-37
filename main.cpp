@@ -17,6 +17,13 @@ int gen_hash_index(const string&);
 void part_Two();
 void part_Three();
 
+// for lab38
+void first_100(const map<int, list<string>>&);
+void keySearch();
+void keyAdd();
+void keyRemove();
+void keyMod();
+
 int main() {
     // user input string
     /*string userString = "";
@@ -29,7 +36,24 @@ int main() {
     // part_Two();
 
     // calls the part three function
-    part_Three();
+    // part_Three();
+
+    map<int, list<string>> hash_table;
+    part_Three(hash_table);
+    int userChoice = 0;
+    while (userChoice != 6) {
+        cout << "[1] Print the first 100 entries" << endl;
+        cout << "[2] Search for key" << endl;
+        cout << "[3] Add a key" << endl;
+        cout << "[4] Remove key" << endl;
+        cout << "[5] Modify a key" << endl;
+        cout << "[6] Exit" << endl;
+        cout << "Choice: ";
+        cin >> userChoice;
+            first_100(hash_table);
+        if (userChoice == 1) {
+        }
+    }
 
 }
 
@@ -64,9 +88,9 @@ void part_Two() {
 }
 
 // part_Three function. creates a hash table data structure. Displays the first 100 map entries from the text file
-void part_Three() {
+void part_Three(map<int, list<string>> userMap) {
     // creates hash table, key is the integer and list string is the value that map to that specific hash index
-    map<int, list<string>> hash_table;
+    map<int, list<string>> userMap;
     ifstream file("lab-37-data.txt");
     string txtLine;
     int dex = 0;
@@ -80,12 +104,12 @@ void part_Three() {
     while (getline(file, txtLine)) {
         // assings the hash index for the current line from the text file and inserts the respective string into the hash table
         dex = gen_hash_index(txtLine);
-        hash_table[dex].push_back(txtLine);
+        userMap[dex].push_back(txtLine);
     }
     file.close();
 
     // display the hash table
-    for (auto it = hash_table.begin(); it != hash_table.end(); ++it) {
+    for (auto it = userMap.begin(); it != userMap.end(); ++it) {
         cout << "Index: " << it->first << endl;
         cout << "Entries: ";
         // displays all the strings that are associated with the current index
@@ -100,3 +124,11 @@ void part_Three() {
         }
     }
 }
+
+void first_100(const map<int, list<string>>& userMap) {
+
+}
+void keySearch();
+void keyAdd();
+void keyRemove();
+void keyMod();
