@@ -1,6 +1,6 @@
 /*
 
-lab37: hash table 1
+lab38: hash table 2
 COMSC-210
 Naveen Islam
 
