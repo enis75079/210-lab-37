@@ -22,7 +22,7 @@ void first_100(const map<int, list<string>>&);
 void keySearch();
 void keyAdd(map<int, list<string>>&);
 void keyRemove(map<int, list<string>>&);
-void keyMod();
+void keyMod(map<int, list<string>>&);
 
 int main() {
     // user input string
@@ -171,9 +171,11 @@ void keyRemove(map<int, list<string>>& userMap) {
     cin >> removedKey;
 
     if (userMap.erase(removedKey)) {
-        cout << "Key: " << removedKey << "removed." << endl;
+        cout << "Key: " << removedKey << " removed." << endl;
     } else {
         cout << "Key: " << removedKey << " does not exist." << endl;
     }
 }
-void keyMod();
+void keyMod(map<int, list<string>>& userMap) {
+
+}
