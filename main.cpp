@@ -20,7 +20,7 @@ void part_Three(map<int, list<string>>&);
 // for lab38
 void first_100(const map<int, list<string>>&);
 void keySearch();
-void keyAdd();
+void keyAdd(map<int, list<string>>&);
 void keyRemove();
 void keyMod();
 
@@ -52,6 +52,16 @@ int main() {
         cin >> userChoice;
         if (userChoice == 1) {
             first_100(hash_table);
+        } else if (userChoice == 2) {
+
+        } else if (userChoice == 3) {
+            keyAdd(hash_table);
+        } else if (userChoice == 4) {
+
+        } else if (userChoice == 5) {
+
+        } else if (userChoice == 6) {
+            break;
         }
     }
 
@@ -142,6 +152,17 @@ void first_100(const map<int, list<string>>& userMap) {
         }
 }
 void keySearch();
-void keyAdd();
+
+void keyAdd(map<int, list<string>>& userMap) {
+    int newKey = 0;
+    string entry = "";
+    cout << "Enter new key: ";
+    cin >> newKey;
+    cout << "\nEnter value for that key: ";
+    cin >> entry;
+
+    userMap[newKey].push_back(entry);
+    cout << "Added new key." << endl;
+}
 void keyRemove();
 void keyMod();
