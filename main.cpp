@@ -53,7 +53,7 @@ int main() {
         if (userChoice == 1) {
             first_100(hash_table);
         } else if (userChoice == 2) {
-
+            keySearch(hash_table);
         } else if (userChoice == 3) {
             keyAdd(hash_table);
         } else if (userChoice == 4) {
@@ -151,14 +151,25 @@ void first_100(const map<int, list<string>>& userMap) {
             }
         }
 }
+
+// keySearch function. Asks user for desired key and searches for that key in the map. displays the values stored in that key
 void keySearch(const map<int, list<string>>& userMap) {
     int searchKey = 0;
     cout << "Enter key to search for: " << endl;
     cin >> searchKey;
 
-    auto it = userMap
+    auto it = userMap.find(searchKey);
+    if (it != userMap.end()) {
+        cout << "Key " << searchKey << " found. Entries: ";
+        for (const auto& entry : it->second) {
+            cout << entry << " ";
+        }
+    } else {
+        cout << "Key not found" << endl;
+    }
 }
 
+// keyAdd function. Asks user for new key and adds it to the end of the map
 void keyAdd(map<int, list<string>>& userMap) {
     int newKey = 0;
     string entry = "";
@@ -171,24 +182,30 @@ void keyAdd(map<int, list<string>>& userMap) {
     cout << "Added new key." << endl;
 }
 
+// keyRemove function. Asks user for desired key and removes the key and its values from the map
 void keyRemove(map<int, list<string>>& userMap) {
     int removedKey = 0;
     cout << "Enter key to remove: ";
     cin >> removedKey;
 
+    // removes the key
     if (userMap.erase(removedKey)) {
         cout << "Key: " << removedKey << " removed." << endl;
     } else {
         cout << "Key: " << removedKey << " does not exist." << endl;
     }
 }
+
+// keyMod function. Asks user for desired key and modifies the entries in that key with new user inputs
 void keyMod(map<int, list<string>>& userMap) {
     int modKey = 0;
     string newVal = "";
     cout << "Enter key to modify: ";
     cin >> modKey;
 
+    // finds the user input key
     auto it = userMap.find(modKey);
+    // changes the values that were intially stored in that specific key to new user input values
     if (it != userMap.end()) {
         cout << "enter new value to this key: ";
         cin >> newVal;
