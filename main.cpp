@@ -19,7 +19,7 @@ void part_Three(map<int, list<string>>&);
 
 // for lab38
 void first_100(const map<int, list<string>>&);
-void keySearch();
+void keySearch(const map<int, list<string>>&);
 void keyAdd(map<int, list<string>>&);
 void keyRemove(map<int, list<string>>&);
 void keyMod(map<int, list<string>>&);
@@ -151,7 +151,13 @@ void first_100(const map<int, list<string>>& userMap) {
             }
         }
 }
-void keySearch();
+void keySearch(const map<int, list<string>>& userMap) {
+    int searchKey = 0;
+    cout << "Enter key to search for: " << endl;
+    cin >> searchKey;
+
+    auto it = userMap
+}
 
 void keyAdd(map<int, list<string>>& userMap) {
     int newKey = 0;
