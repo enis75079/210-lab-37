@@ -26,7 +26,9 @@ int main() {
     return 0;*/
 
     // calls the part two function
-    part_Two();
+    // part_Two();
+
+    part_Three();
 
 }
 
@@ -75,4 +77,10 @@ void part_Three() {
         hash_table[dex].push_front(txtLine);
     }
     file.close();
+
+    for (const auto& entries : hash_table) {
+        for (const auto& enter : entries) {
+            cout << enter << " ";
+        }
+    }
 }
