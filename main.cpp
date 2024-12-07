@@ -61,5 +61,18 @@ void part_Two() {
 }
 
 void part_Three() {
-    
+    map<int, list<string>> hash_table;
+    ifstream file("lab-37-data.txt");
+    string txtLine;
+    int dex = 0;
+    if (!file.is_open()) {
+        cout << "Could not open file. Please try again." << endl;
+        return;
+    }
+
+    while (getline(file, txtLine)) {
+        int dex = gen_hash_index(txtLine);
+        hash_table[dex].push_front(txtLine);
+    }
+    file.close();
 }
