@@ -8,11 +8,14 @@ Naveen Islam
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <map>
+#include <list>
 using namespace std;
 
 // function prototypes
-int sum_ascii(const string&);
+int gen_hash_index(const string&);
 void part_Two();
+void part_Three();
 
 int main() {
     // user input string
@@ -28,7 +31,7 @@ int main() {
 }
 
 // sum_ascii function. receives a single string and returns the sum of that string's character's ASCII values
-int sum_ascii(const string& userInput) {
+int gen_hash_index(const string& userInput) {
     int sum = 0;
     // reads every character from the user's string and adds the ascii value to the sum
     for (char x : userInput) {
@@ -51,8 +54,12 @@ void part_Two() {
 
     // reads each line in the text file and calls the sum_ascii function for each line
     while (getline(file, txtLine)) {
-        total += sum_ascii(txtLine);
+        total += gen_hash_index(txtLine);
     }
     file.close();
     cout << "Total of lab-37-data.txt ASCII values: " << total << endl;
+}
+
+void part_Three() {
+    
 }
