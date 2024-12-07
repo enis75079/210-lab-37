@@ -59,7 +59,7 @@ int main() {
         } else if (userChoice == 4) {
             keyRemove(hash_table);
         } else if (userChoice == 5) {
-
+            keyMod(hash_table);
         } else if (userChoice == 6) {
             break;
         }
@@ -177,5 +177,18 @@ void keyRemove(map<int, list<string>>& userMap) {
     }
 }
 void keyMod(map<int, list<string>>& userMap) {
+    int modKey = 0;
+    string newVal = "";
+    cout << "Enter key to modify: ";
+    cin >> modKey;
 
+    auto it = userMap.find(modKey);
+    if (it != userMap.end()) {
+        cout << "enter new value to this key: ";
+        cin >> newVal;
+        it->second.push_back(newVal);
+        cout << "\nModification complete." << endl;
+    } else {
+        cout << "Key not found" << endl;
+    }
 }
