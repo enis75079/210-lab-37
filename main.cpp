@@ -74,16 +74,17 @@ void part_Three() {
     }
 
     while (getline(file, txtLine)) {
-        int dex = gen_hash_index(txtLine);
+        dex = gen_hash_index(txtLine);
         hash_table[dex].push_back(txtLine);
     }
     file.close();
 
     for (const auto& [index, entries] : hash_table) {
+        cout << "Index: " << index << endl;
+        cout << "Entries: ";
         for (const auto& enter : entries) {
             cout << enter << " ";
         }
         cout << endl;
-        if 
     }
 }
