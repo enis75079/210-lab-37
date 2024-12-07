@@ -21,7 +21,7 @@ void part_Three(map<int, list<string>>&);
 void first_100(const map<int, list<string>>&);
 void keySearch();
 void keyAdd(map<int, list<string>>&);
-void keyRemove();
+void keyRemove(map<int, list<string>>&);
 void keyMod();
 
 int main() {
@@ -57,7 +57,7 @@ int main() {
         } else if (userChoice == 3) {
             keyAdd(hash_table);
         } else if (userChoice == 4) {
-
+            keyRemove(hash_table);
         } else if (userChoice == 5) {
 
         } else if (userChoice == 6) {
@@ -164,5 +164,16 @@ void keyAdd(map<int, list<string>>& userMap) {
     userMap[newKey].push_back(entry);
     cout << "Added new key." << endl;
 }
-void keyRemove();
+
+void keyRemove(map<int, list<string>>& userMap) {
+    int removedKey = 0;
+    cout << "Enter key to remove: ";
+    cin >> removedKey;
+
+    if (userMap.erase(removedKey)) {
+        cout << "Key: " << removedKey << "removed." << endl;
+    } else {
+        cout << "Key: " << removedKey << " does not exist." << endl;
+    }
+}
 void keyMod();
