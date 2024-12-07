@@ -67,6 +67,7 @@ void part_Three() {
     ifstream file("lab-37-data.txt");
     string txtLine;
     int dex = 0;
+    int count = 0; 
     if (!file.is_open()) {
         cout << "Could not open file. Please try again." << endl;
         return;
@@ -74,13 +75,15 @@ void part_Three() {
 
     while (getline(file, txtLine)) {
         int dex = gen_hash_index(txtLine);
-        hash_table[dex].push_front(txtLine);
+        hash_table[dex].push_back(txtLine);
     }
     file.close();
 
-    for (const auto& entries : hash_table) {
+    for (const auto& [index, entries] : hash_table) {
         for (const auto& enter : entries) {
             cout << enter << " ";
         }
+        cout << endl;
+        if 
     }
 }
