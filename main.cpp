@@ -24,6 +24,7 @@ void keyAdd(map<int, list<string>>&);
 void keyRemove(map<int, list<string>>&);
 void keyMod(map<int, list<string>>&);
 
+// main function
 int main() {
     // user input string
     /*string userString = "";
@@ -38,9 +39,14 @@ int main() {
     // calls the part three function
     // part_Three();
 
+    // initializes the hash_table map
     map<int, list<string>> hash_table;
+
+    // stores the data from the text file into the hash_table
     part_Three(hash_table);
     int userChoice = 0;
+    
+    // menu
     while (userChoice != 6) {
         cout << "[1] Print the first 100 entries" << endl;
         cout << "[2] Search for key" << endl;
@@ -134,7 +140,7 @@ void part_Three(map<int, list<string>>& userMap) {
     }*/
 }
 
-// first_100 function. displays the first 100 keys from the 
+// first_100 function. displays the first 100 keys from the map 
 void first_100(const map<int, list<string>>& userMap) {
     int count = 0;
     for (auto it = userMap.begin(); it != userMap.end(); ++it) {
