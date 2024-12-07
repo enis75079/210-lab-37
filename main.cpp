@@ -134,10 +134,11 @@ void part_Three(map<int, list<string>>& userMap) {
     }*/
 }
 
+// first_100 function. displays the first 100 keys from the 
 void first_100(const map<int, list<string>>& userMap) {
     int count = 0;
     for (auto it = userMap.begin(); it != userMap.end(); ++it) {
-            cout << "Index: " << it->first << endl;
+            cout << "Key: " << it->first << endl;
             cout << "Entries: ";
             // displays all the strings that are associated with the current index
             for (const auto& entries : it->second) {
@@ -158,12 +159,15 @@ void keySearch(const map<int, list<string>>& userMap) {
     cout << "Enter key to search for: " << endl;
     cin >> searchKey;
 
+    // searches for the user input key in the map
     auto it = userMap.find(searchKey);
     if (it != userMap.end()) {
         cout << "Key " << searchKey << " found. Entries: ";
+        // displays the entries from the desired key
         for (const auto& entry : it->second) {
             cout << entry << " ";
         }
+        cout << endl;
     } else {
         cout << "Key not found" << endl;
     }
@@ -178,6 +182,7 @@ void keyAdd(map<int, list<string>>& userMap) {
     cout << "\nEnter value for that key: ";
     cin >> entry;
 
+    // calls the function push back from the map library to add the new key to the map
     userMap[newKey].push_back(entry);
     cout << "Added new key." << endl;
 }
