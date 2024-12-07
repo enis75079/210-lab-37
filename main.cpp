@@ -40,14 +40,16 @@ int sum_ascii(const string& userInput) {
 
 // part two function. reads the lab-37-data.txt file and totals the ascii value of all the strings
 void part_Two() {
+    // reads text file
     ifstream file("lab-37-data.txt");
     string txtLine;
-    long long total = 0;
+    int total = 0;
     if (!file.is_open()) {
         cout << "Could not open file. Please try again." << endl;
         return;
     }
 
+    // reads each line in the text file and calls the sum_ascii function for each line
     while (getline(file, txtLine)) {
         total += sum_ascii(txtLine);
     }
